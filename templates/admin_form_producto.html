@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLACK BOX - {{ titulo }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">{{ titulo }}</h2>
+
+        <form action="" method="POST">
+            <div class="mb-6">
+                <label for="nombre" class="block text-gray-700 text-sm font-medium mb-2">Nombre del Producto:</label>
+                <input type="text" id="nombre" name="nombre" value="{{ producto.nombre if producto else '' }}" required
+                       class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ease-in-out">
+            </div>
+            <div class="mb-6">
+                <label for="descripcion" class="block text-gray-700 text-sm font-medium mb-2">Descripción:</label>
+                <textarea id="descripcion" name="descripcion" rows="5" required
+                          class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ease-in-out">{{ producto.descripcion if producto else '' }}</textarea>
+            </div>
+            <div class="mb-6">
+                <label for="precio" class="block text-gray-700 text-sm font-medium mb-2">Precio:</label>
+                <input type="text" id="precio" name="precio" value="{{ producto.precio if producto else '' }}" required
+                       class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ease-in-out">
+            </div>
+            <div class="mb-6">
+                <label for="estado" class="block text-gray-700 text-sm font-medium mb-2">Estado:</label>
+                <select id="estado" name="estado" required
+                        class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ease-in-out">
+                    <option value="disponible" {% if producto and producto.estado == 'disponible' %}selected{% endif %}>Disponible</option>
+                    <option value="agotado" {% if producto and producto.estado == 'agotado' %}selected{% endif %}>Agotado</option>
+                    <option value="proximamente" {% if producto and producto.estado == 'proximamente' %}selected{% endif %}>Próximamente</option>
+                </select>
+            </div>
+            <div class="mb-8">
+                <label for="imagen" class="block text-gray-700 text-sm font-medium mb-2">URL de la Imagen (opcional):</label>
+                <input type="url" id="imagen" name="imagen" value="{{ producto.imagen if producto and producto.imagen != 'https://placehold.co/400x300/343a40/ffffff?text=Producto' else '' }}"
+                       class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ease-in-out"
+                       placeholder="Ej: https://ejemplo.com/imagen.jpg">
+            </div>
+            <button type="submit"
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-300 ease-in-out transform hover:scale-105">
+                Guardar Producto
+            </button>
+        </form>
+        <p class="text-center text-gray-600 text-sm mt-6">
+            <a href="{{ url_for('admin_dashboard') }}" class="text-blue-500 hover:text-blue-700 font-medium">Volver al Panel de Administración</a>
+        </p>
+    </div>
+</body>
+</html>

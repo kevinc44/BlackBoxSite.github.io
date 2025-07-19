@@ -1,0 +1,30 @@
+[
+  {
+    "nombre": "Disco SSD 512GB",
+    "descripcion": "Mejora la velocidad de tu equipo con este disco de estado sólido de alta velocidad.",
+    "precio": "$150.000",
+    "estado": "disponible",
+    "imagen": "[https://placehold.co/400x300/343a40/ffffff?text=SSD+512GB](https://placehold.co/400x300/343a40/ffffff?text=SSD+512GB)"
+  },
+  {
+    "nombre": "Memoria RAM 8GB DDR4",
+    "descripcion": "Expande la memoria de tu portátil o PC para un mejor rendimiento en multitarea.",
+    "precio": "$120.000",
+    "estado": "disponible",
+    "imagen": "[https://placehold.co/400x300/343a40/ffffff?text=RAM+8GB](https://placehold.co/400x300/343a40/ffffff?text=RAM+8GB)"
+  },
+  {
+    "nombre": "Batería para iPhone 11",
+    "descripcion": "Reemplazo de alta calidad para que tu iPhone recupere su autonomía original.",
+    "precio": "$180.000",
+    "estado": "pedido",
+    "imagen": "[https://placehold.co/400x300/343a40/ffffff?text=Bateria+iPhone](https://placehold.co/400x300/343a40/ffffff?text=Bateria+iPhone)"
+  },
+  {
+    "nombre": "Cargador USB-C 65W",
+    "descripcion": "Cargador universal de carga rápida para portátiles, celulares y otros dispositivos.",
+    "precio": "$95.000",
+    "estado": "agotado",
+    "imagen": "[https://placehold.co/400x300/343a40/ffffff?text=Cargador+65W](https://placehold.co/400x300/343a40/ffffff?text=Cargador+65W)"
+  }
+]

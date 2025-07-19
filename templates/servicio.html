@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}{{ servicio.titulo }}{% endblock %}
+{% block content %}
+<div class="container py-5 mt-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto" data-aos="fade-up">
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}#servicios">Servicios</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ servicio.titulo }}</li>
+                </ol>
+            </nav>
+            <h1 class="display-4 fw-bold mb-4"><i class="bi {{ servicio.icono }} me-3"></i>{{ servicio.titulo }}</h1>
+            <p class="lead">{{ servicio.descripcion_larga }}</p>
+            <hr class="my-5">
+            <h3 class="fw-bold">Soluciones Incluidas:</h3>
+            <ul class="list-group list-group-flush mt-3">
+                {% for solucion in servicio.soluciones %}
+                <li class="list-group-item bg-transparent">{{ solucion }}</li>
+                {% endfor %}
+            </ul>
+            <hr class="my-5">
+            <div class="text-center">
+                <a href="{{ url_for('index') }}#contacto" class="btn btn-primary btn-lg fw-bold">Contactar para este servicio</a>
+                <a href="{{ url_for('index') }}#servicios" class="btn btn-outline-secondary btn-lg ms-2">Ver otros servicios</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="related-services" class="py-5 bg-body-tertiary">
+    <div class="container" data-aos="fade-up">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Ver Otros Servicios</h2>
+        </div>
+        <div class="row text-center">
+            {% for key, srv in servicios.items() %}
+                {% if key != nombre_servicio %}
+                    <div class="col-md-4 mb-4">
+                        <a href="{{ url_for('detalle_servicio', nombre_servicio=key) }}" class="text-decoration-none">
+                            <div class="card h-100 service-card">
+                                <div class="card-body p-4">
+                                    <i class="bi {{ srv.icono }} display-4"></i>
+                                    <h5 class="card-title mt-3">{{ srv.titulo }}</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

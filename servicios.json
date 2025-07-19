@@ -1,0 +1,30 @@
+{
+  "computadoras": {
+    "titulo": "Soporte Técnico para PC de Escritorio",
+    "resumen": "Diagnóstico avanzado, reparación de hardware y optimización de rendimiento.",
+    "icono": "bi-pc-display-horizontal",
+    "descripcion_larga": "Ofrecemos un servicio integral para tu PC. Desde diagnósticos precisos con herramientas especializadas hasta la optimización del sistema operativo para que funcione a su máximo potencial.",
+    "soluciones": ["Diagnóstico completo", "Reemplazo de componentes", "Limpieza y pasta térmica", "Formateo e instalación", "Recuperación de datos", "Ensamblaje de PCs"]
+  },
+  "portatiles": {
+    "titulo": "Servicio Técnico para Portátiles",
+    "resumen": "Reparación de componentes a nivel de placa, cambio de pantallas y baterías.",
+    "icono": "bi-laptop",
+    "descripcion_larga": "Nos especializamos en la micro-electrónica de portátiles de todas las marcas. Realizamos reparaciones a nivel de componente para ofrecerte la solución más económica y eficiente.",
+    "soluciones": ["Cambio de pantallas", "Reemplazo de teclados", "Sustitución de baterías", "Solución a sobrecalentamiento", "Reparación de bisagras", "Reparaciones de placa base"]
+  },
+  "celulares": {
+    "titulo": "Reparación de Celulares",
+    "resumen": "Micro-soldadura, cambio de glass, software y reemplazo de baterías.",
+    "icono": "bi-phone",
+    "descripcion_larga": "Reparamos las principales marcas del mercado (Apple, Samsung, Xiaomi, etc.). Usamos repuestos de alta calidad (OEM y originales) para garantizar una reparación duradera.",
+    "soluciones": ["Cambio de pantalla/glass", "Reemplazo de batería", "Reparación de puerto de carga", "Solución a fallas de software", "Reparación de cámaras", "Tratamiento para equipos mojados"]
+  },
+  "relojes": {
+    "titulo": "Mantenimiento de Smartwatches",
+    "resumen": "Solución a fallas de sincronización, batería y pantalla.",
+    "icono": "bi-smartwatch",
+    "descripcion_larga": "Tu smartwatch también merece el mejor cuidado. Solucionamos los problemas más comunes para que no dejes de monitorear tu actividad y recibir tus notificaciones.",
+    "soluciones": ["Cambio de pantalla", "Reemplazo de batería", "Solución a problemas de conexión", "Reparación de botones", "Limpieza de sensores"]
+  }
+}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Resultados para '{{ query }}'{% endblock %}
+{% block content %}
+<div class="container py-5 mt-5">
+    <div class="text-center"><h1 class="display-5 fw-bold">Resultados para: <span class="text-primary">"{{ query }}"</span></h1></div>
+    {% if resultados %}
+        <div class="row mt-5">
+            {% for key, servicio in resultados.items() %}
+            <div class="col-md-6 col-lg-4 mb-4">
+                 <a href="{{ url_for('detalle_servicio', nombre_servicio=key) }}" class="text-decoration-none">
+                    <div class="card h-100 service-card"><div class="card-body text-center p-4"><i class="bi {{ servicio.icono }} display-3 text-primary"></i><h5 class="card-title mt-3 fw-bold">{{ servicio.titulo }}</h5><p class="card-text small text-muted">{{ servicio.resumen }}</p></div></div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="text-center mt-4"><div class="alert alert-warning col-lg-8 mx-auto"><h4 class="alert-heading">Sin resultados</h4><p>No se encontraron servicios que coincidan.</p></div></div>
+    {% endif %}
+</div>
+{% endblock %}

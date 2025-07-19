@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Tienda de Componentes y Accesorios{% endblock %}
+{% block content %}
+<div class="container py-5 mt-5">
+    <div class="text-center mb-5" data-aos="fade-up">
+        <h1 class="display-4 fw-bold">Nuestra Tienda</h1>
+        <p class="lead text-muted">Componentes, accesorios y equipos de la mejor calidad.</p>
+    </div>
+    <div class="row">
+        {% for producto in productos %}
+        <div class="col-md-6 col-lg-4 col-xl-3 mb-4" data-aos="fade-up" data-aos-delay="{{ loop.index * 50 }}">
+            <div class="card product-card h-100">
+                <img src="{{ producto.imagen }}" class="card-img-top" alt="{{ producto.nombre }}">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">{{ producto.nombre }}</h5>
+                    <p class="card-text text-muted small flex-grow-1">{{ producto.descripcion }}</p>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <p class="product-price mb-0">{{ producto.precio }}</p>
+                        <span class="product-status {{ producto.estado }}">{{ producto.estado }}</span>
+                    </div>
+                    <a href="https://wa.me/573019320359?text=Hola,%20estoy%20interesado%20en%20el%20producto:%20{{ producto.nombre|urlencode }}" target="_blank" class="btn btn-primary w-100 mt-auto"><i class="bi bi-whatsapp me-2"></i>Consultar</a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <p class="text-center lead">No hay productos disponibles en este momento. Vuelve a visitar o añade productos en el panel de administración.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

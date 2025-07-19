@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}Expertos en Reparación de Electrónicos{% endblock %}
+{% block body_attributes %}data-bs-spy="scroll" data-bs-target=".navbar"{% endblock %}
+{% block content %}
+    <header id="inicio">
+        <div id="inicio-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="background-image: url('https://placehold.co/1920x1080/000000/FFFFFF?text=Reparacion+de+Laptops');"><div class="carousel-caption"><h1>Reparación Experta de Portátiles</h1><p class="lead my-4">Solucionamos desde pantallas rotas hasta problemas complejos de placa base.</p><a href="#contacto" class="btn btn-primary btn-lg">Cotizar Ahora</a></div></div>
+                <div class="carousel-item" style="background-image: url('https://placehold.co/1920x1080/111111/FFFFFF?text=Servicio+Tecnico+Celulares');"><div class="carousel-caption"><h1>Servicio Técnico de Celulares</h1><p class="lead my-4">Baterías, pantallas, puertos de carga y más, para todas las marcas.</p><a href="#servicios" class="btn btn-light btn-lg">Ver Servicios</a></div></div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#inicio-carousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button><button class="carousel-control-next" type="button" data-bs-target="#inicio-carousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+        </div>
+    </header>
+    <section id="servicios" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold">Nuestras Especialidades</h2>
+                <p class="text-muted">Encuentra la solución que necesitas.</p>
+                <!-- Video Añadido -->
+                <div class="video-container">
+                    <video src="{{ url_for('static', filename='videos/logo_video.mp4') }}" autoplay loop muted playsinline></video>
+                </div>
+            </div>
+            <div class="row text-center">
+                {% for key, servicio in servicios.items() %}
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+                    <a href="{{ url_for('detalle_servicio', nombre_servicio=key) }}" class="text-decoration-none"><div class="card h-100 service-card"><div class="card-body p-4"><i class="bi {{ servicio.icono }} display-3"></i><h5 class="card-title mt-3 fw-bold">{{ servicio.titulo }}</h5><p class="card-text small">{{ servicio.resumen }}</p></div></div></a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section id="tienda" class="py-5 bg-body-tertiary">
+        <div class="container text-center" data-aos="fade-up">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <i class="bi bi-shop display-1 text-primary"></i>
+                    <h2 class="fw-bold mt-3">Visita Nuestra Tienda</h2>
+                    <p class="lead my-4">Explora nuestro catálogo completo de componentes y accesorios.</p>
+                    <a href="{{ url_for('tienda') }}" class="btn btn-primary btn-lg"><i class="bi bi-arrow-right-circle me-2"></i>Ir al Catálogo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="proceso" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up"><h2 class="fw-bold">Nuestro Proceso Simplificado</h2><p class="text-muted">Transparencia y eficiencia en cada paso.</p></div>
+            <div class="row text-center g-4">
+                <div class="col-md-3" data-aos="fade-right"><div class="proceso-step"><div class="step-number">1</div><i class="bi bi-chat-dots-fill"></i><h4 class="mt-3">Diagnóstico</h4></div></div>
+                <div class="col-md-3" data-aos="fade-right" data-aos-delay="100"><div class="proceso-step"><div class="step-number">2</div><i class="bi bi-check-circle-fill"></i><h4 class="mt-3">Aprobación</h4></div></div>
+                <div class="col-md-3" data-aos="fade-right" data-aos-delay="200"><div class="proceso-step"><div class="step-number">3</div><i class="bi bi-gear-fill"></i><h4 class="mt-3">Reparación</h4></div></div>
+                <div class="col-md-3" data-aos="fade-right" data-aos-delay="300"><div class="proceso-step"><div class="step-number">4</div><i class="bi bi-box-seam-fill"></i><h4 class="mt-3">Entrega</h4></div></div>
+            </div>
+        </div>
+    </section>
+    <section id="ubicacion" class="py-5 bg-body-tertiary">
+        <div class="container" data-aos="fade-up">
+            <div class="text-center mb-5"><h2 class="fw-bold">Encuéntranos</h2><p class="text-muted">Visítanos en el corazón de Medellín.</p></div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <h3>Nuestra Dirección</h3><p class="lead">Visítanos y recibe un diagnóstico en persona.</p>
+                    <p><i class="bi bi-geo-alt-fill me-2"></i>Centro de Medellín, Local 204 Opera.</p>
+                    <h4 class="mt-4">Horario de Atención</h4><p><i class="bi bi-clock-fill me-2"></i>Lunes a Sábado: 9:30 AM - 7:00 PM</p>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left"><div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.148383377778!2d-75.5714298852307!3d6.244338995480517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e442858b1a81c9b%3A0x28a63cf1818d328c!2sCentro%20Comercial%20Opera!5e0!3m2!1ses!2sco!4v1689738546521!5m2!1ses!2sco" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>
+            </div>
+        </div>
+    </section>
+    <section id="contacto" class="py-5">
+        <div class="container" data-aos="fade-up">
+            <div class="text-center"><h2 class="fw-bold">¿Listo para reparar tu equipo?</h2><p class="lead my-4">Contáctanos. Nuestro diagnóstico es rápido y sin compromiso.</p></div>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}{% for category, message in messages %}<div class="alert alert-{{ category }} alert-dismissible fade show col-lg-6 mx-auto" role="alert">{{ message }}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>{% endfor %}{% endif %}
+            {% endwith %}
+            <div class="row mt-4 justify-content-center">
+                <div class="col-lg-6">
+                    <form action="{{ url_for('enviar_mensaje') }}" method="POST">
+                        <div class="mb-3"><label for="nombre" class="form-label">Tu Nombre</label><input type="text" class="form-control" id="nombre" name="nombre" required></div>
+                        <div class="mb-3"><label for="email" class="form-label">Tu Correo</label><input type="email" class="form-control" id="email" name="email" required></div>
+                        <div class="mb-3"><label for="mensaje" class="form-label">¿En qué podemos ayudarte?</label><textarea class="form-control" id="mensaje" name="mensaje" rows="4" required></textarea></div>
+                        <button type="submit" class="btn btn-primary w-100">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
